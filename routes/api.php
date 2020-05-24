@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('about','AboutController');
 Route::resource('unit_base','UnitBaseController');
 Route::resource('unit_advance','UnitAdvanceController');
+Route::resource('user','UserController');
