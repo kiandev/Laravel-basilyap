@@ -25,3 +25,5 @@ Route::resource('user','UserController');
 Route::post('user/login','UserController@login');
 Route::post('user/email','UserController@email');
 Route::resource('opinion','OpinionController');
+Route::resource('team','TeamController');
+Route::resource('comunication','ComunicationController');
