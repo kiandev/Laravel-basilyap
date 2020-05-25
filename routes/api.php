@@ -22,3 +22,6 @@ Route::resource('about','AboutController');
 Route::resource('unit_base','UnitBaseController');
 Route::resource('unit_advance','UnitAdvanceController');
 Route::resource('user','UserController');
+Route::post('user/login','UserController@login');
+Route::post('user/email','UserController@email');
+Route::resource('opinion','OpinionController');
