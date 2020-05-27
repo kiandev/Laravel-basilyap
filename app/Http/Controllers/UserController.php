@@ -15,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = User::all();
+        return $user;
     }
 
     /**
@@ -78,7 +79,20 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return $user;
+    }
+
+    public function get_detail(Request $request)
+    {
+        if ($user = DB::table('users')
+            ->where('email', '=', $request->get('email'))
+            ->get()
+        ) {
+            return $user;
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -101,8 +115,40 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
+
+    public function detail(Request $request)
+    {
+        if ($result = DB::Table('users')
+            ->where('email', $request->get('email'))->update(
+                array(
+                    'name' => $request->get('name'),
+                    'phone' => $request->get('phone'),
+                )
+            )) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
+    public function password(Request $request)
+    {
+        if ($result = DB::Table('users')
+            ->where('email', $request->get('email'))->update(
+                array(
+                    'password' => $request->get('password')
+                )
+            )) {
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
 
     /**
      * Remove the specified resource from storage.
