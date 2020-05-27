@@ -52,8 +52,8 @@ class UserController extends Controller
         if ($user = DB::table('users')
             ->where('email', '=', $request->get('email'))
             ->where('password', '=', $request->get('password'))
-            ->exists()) {
-            return 1;
+            ->get()) {
+            return $user;
         } else {
             return 0;
         }

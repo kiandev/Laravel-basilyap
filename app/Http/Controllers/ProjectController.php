@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\UnitBase;
-use App\UnitImage;
+use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class UnitBaseController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +15,9 @@ class UnitBaseController extends Controller
      */
     public function index()
     {
-        $unit_base = UnitBase::all();
-        return $unit_base;
+        $project = Project::all();
+        return $project;
     }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -51,8 +48,17 @@ class UnitBaseController extends Controller
      */
     public function show($id)
     {
-        $unit_base = UnitBase::find($id);
-        return $unit_base;
+        //
+    }
+
+    public function detail(Request $request){
+        if ($project = DB::table('projects')
+            ->where('project_id', '=', $request->get('project_id'))
+            ->get()) {
+            return $project;
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -87,20 +93,5 @@ class UnitBaseController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function limit()
-    {
-        $unit_base = DB::table('unit_bases')->take(10)->get();
-//        $unit_base = UnitBase::all();
-        return $unit_base;
-    }
-
-    public function special()
-    {
-        $unit_special = DB::table('unit_bases')
-            ->where('special', '=', '1')
-            ->take(10)->get();
-        return $unit_special;
     }
 }

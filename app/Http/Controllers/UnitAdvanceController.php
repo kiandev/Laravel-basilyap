@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UnitAdvance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UnitAdvanceController extends Controller
 {
@@ -49,6 +50,16 @@ class UnitAdvanceController extends Controller
     {
         $unit_advance = UnitAdvance::find($id);
         return $unit_advance;
+    }
+
+    public function unit(Request $request){
+        if ($unitadvance = DB::table('unit_advances')
+            ->where('unit_id', '=', $request->get('unit_id'))
+            ->get()) {
+            return $unitadvance;
+        } else {
+            return 0;
+        }
     }
 
     /**

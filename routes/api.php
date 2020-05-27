@@ -19,11 +19,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('about','AboutController');
-Route::resource('unit_base','UnitBaseController');
-Route::resource('unit_advance','UnitAdvanceController');
+Route::resource('unit/base','UnitBaseController');
+Route::get('unit/base_limit','UnitBaseController@limit');
+Route::get('unit/base_special','UnitBaseController@special');
+Route::resource('unit/advance','UnitAdvanceController');
+Route::Post('unit/advance_detail','UnitAdvanceController@unit');
+Route::resource('unit/image','UnitImageController');
 Route::resource('user','UserController');
 Route::post('user/login','UserController@login');
 Route::post('user/email','UserController@email');
 Route::resource('opinion','OpinionController');
 Route::resource('team','TeamController');
 Route::resource('comunication','ComunicationController');
+Route::resource('project','ProjectController');
+Route::Post('project/detail','ProjectController@detail');

@@ -14,6 +14,7 @@ class UnitBase extends Model
         'image',
         'type',
         'region',
-        'project_id'
+        'project_id',
+        'special'
     ];
 }
