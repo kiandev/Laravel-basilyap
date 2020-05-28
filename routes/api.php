@@ -36,3 +36,6 @@ Route::resource('team','TeamController');
 Route::resource('comunication','ComunicationController');
 Route::resource('project','ProjectController');
 Route::Post('project/detail','ProjectController@detail');
+Route::resource('notification','NotificationController');
+Route::resource('chat','ChatController');
+Route::post('chat/personal','ChatController@personal');
