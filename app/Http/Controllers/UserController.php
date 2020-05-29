@@ -71,6 +71,15 @@ class UserController extends Controller
         }
     }
 
+    public function forget(Request $request)
+    {
+        if ($user = DB::table('users')
+            ->where('email', '=', $request->get('email'))
+            ->get('password')) {
+            return $user;
+        }
+    }
+
     /**
      * Display the specified resource.
      *

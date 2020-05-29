@@ -39,3 +39,5 @@ Route::Post('project/detail','ProjectController@detail');
 Route::resource('notification','NotificationController');
 Route::resource('chat','ChatController');
 Route::post('chat/personal','ChatController@personal');
+Route::resource('bug','BugController');
+Route::post('user/forget','UserController@forget');
