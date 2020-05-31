@@ -41,3 +41,7 @@ Route::resource('chat','ChatController');
 Route::post('chat/personal','ChatController@personal');
 Route::resource('bug','BugController');
 Route::post('user/forget','UserController@forget');
+Route::resource('advisor','AdvisorController');
+Route::resource('weblog','WeblogController');
+Route::resource('exchange','ExchangeController');
+
